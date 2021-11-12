@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Home from './components/Home';
 import Debits from './components/Debits'
+import Credits from './components/Credits'
 import UserProfile from './components/UserProfile';
 import LogIn from './components/Login'
 
@@ -34,6 +35,7 @@ class App extends Component {
     );
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
     const DebitsComponent = () => (<Debits debits={this.state.debits}/>)
+    const CreditsComponent = () => (<Credits credits={this.state.credits}/>)
 
     return (
         <Router>
@@ -41,6 +43,7 @@ class App extends Component {
             <Route exact path="/" render={HomeComponent}/>
             <Route exact path="/userProfile" render={UserProfileComponent}/>
             <Route exact path="/Debits" render={DebitsComponent}/>
+            <Route exact path="/Credits" render={CreditsComponent}/>
             <Route exact path="/login" render={LogInComponent}/>
           </div>
         </Router>

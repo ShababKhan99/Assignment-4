@@ -47,14 +47,25 @@ class App extends Component {
     this.setState({currentUser: newUser})
   }
 
+  dynamicBalance = () => {
+    const balance = 0;
+    this.state.debits.map(debit => (
+      balance -= debit.amount
+    ))
+    this.state.debits.map(credit => (
+      balance += credit.amount
+    ))
+    this.setState({accountBalance: balance});
+  }
+
   render() {
-    const HomeComponent = () => (<Home accountBalance={this.state.accountBalance}/>);
+    const HomeComponent = () => (<Home accountBalance={this.state.accountBalance} debits={this.state.debits} credits={this.state.credits}/>);
     const UserProfileComponent = () => (
         <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince}  />
     );
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
-    const DebitsComponent = () => (<Debits debits={this.state.debits}/>)
-    const CreditsComponent = () => (<Credits credits={this.state.credits}/>)
+    const DebitsComponent = () => (<Debits debits={this.state.debits} accountBalance={this.state.accountBalance}/>)
+    const CreditsComponent = () => (<Credits credits={this.state.credits} accountBalance={this.state.accountBalance}/>)
 
     return (
         <Router>

@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+Your App component should have:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-https://shababkhan99.github.io/Assignment4-BankOfReact/
+state containing accountBalance (number), currentUser (object), debits (array), and credits (array)
+two functions, addCredit and addDebit that update the state based on user input
+lifecycle method componentDidMount(); API requests should go here
 
